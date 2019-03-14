@@ -45,11 +45,12 @@ def scrape_data(driver, profile_name):
 
     expanded_answers = driver.find_elements_by_xpath("//div[contains(@class, 'ui_qtext_expanded')]")
 
+    out_file = open("answer_blob.txt", "w", encoding="utf-8")
+
     for answer in expanded_answers:
-        print(answer.text, end='\n')
+        out_file.write(str(answer.text))
+        out_file.write('\n')
+
+    out_file.close()
 
     driver.close()
-
-
-dr = initialize_browser(headless=False)
-scrape_data(dr, "Amal-Rajan-5")
