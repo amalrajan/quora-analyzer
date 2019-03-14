@@ -25,6 +25,3 @@ def generate_word_cloud():
     plt.tight_layout(pad=0)
 
     plt.show()
-
-
-generate_word_cloud()
