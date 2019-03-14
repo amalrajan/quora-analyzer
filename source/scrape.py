@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
@@ -29,19 +31,25 @@ def scrape_data(driver, profile_name):
     driver.get("https://www.quora.com/profile/{}".format(profile_name))
 
     answers_count = int(driver.find_element_by_xpath("//span[contains(@class, 'list_count')]").text)
-    answers_found = 0
+    answer_links = []
 
-    while answers_found < answers_count:
-        expand_link = driver.find_element_by_xpath("//a[contains(@class, 'ui_qtext_more_link')]")
-        expand_link.click()
+    while len(answer_links) < answers_count:
+        answer_links = driver.find_elements_by_class_name("question_link")
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)
 
-        expanded_answer = driver.find_elements_by_xpath("//div[contains(@class, 'ui_qtext_expanded')]")
-        print(expanded_answer)
+    view_more_links = driver.find_elements_by_xpath("//a[contains(@class, 'ui_qtext_more_link')]")
 
-        answers_found += 1
+    for view_more_link in view_more_links:
+        view_more_link.click()
+
+    expanded_answers = driver.find_elements_by_xpath("//div[contains(@class, 'ui_qtext_expanded')]")
+
+    for answer in expanded_answers:
+        print(answer.text, end='\n')
 
     driver.close()
 
 
-dr = initialize_browser()
+dr = initialize_browser(headless=False)
 scrape_data(dr, "Amal-Rajan-5")
