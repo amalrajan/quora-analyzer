@@ -2,3 +2,5 @@ venv
 .vscode
 .idea
 source\\geckodriver.log
+source\\temp.py
+source\\text_blob.txt
