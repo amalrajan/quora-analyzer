@@ -39,4 +39,4 @@ Submit issues at https://github.com/amalrajan/Quora-SentimentAnalysis/issues
 Submit PRs at https://github.com/amalrajan/Quora-SentimentAnalysis/pulls
 
 ## License
-`GNU General Public License v3.0`
+<img src=https://img.shields.io/badge/license-GPL--3.0-green.svg>
