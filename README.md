@@ -22,14 +22,14 @@ Create a virual environment for Python 3.7 32-bit, name it `venv`.
 
 ```
 > venv\Scripts\activate
-> pip install -U requirements.txt
+> pip install -r requirements.txt
 ```
 
 * Linux 
 
 ```
-> source venv/bin/activate
-> pip install -U requirements.txt
+$ source venv/bin/activate
+$ pip install -r requirements.txt
 ```
 
 ## Contributing
