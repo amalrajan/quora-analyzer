@@ -12,7 +12,7 @@ https://github.com/mozilla/geckodriver
 
 <img src="images\word_cloud_amal_rajan.png" height=500 width=500>
 
-(Image generated from my Quora profile)
+(Word cloud generated from my Quora profile)
 
 ## Installation
 
